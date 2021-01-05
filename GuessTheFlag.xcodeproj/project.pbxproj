@@ -12,6 +12,7 @@
 		13B8BE9C25A3D9F400428ADC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B8BE9B25A3D9F400428ADC /* ViewController.swift */; };
 		13B8BEA125A3D9F700428ADC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B8BEA025A3D9F700428ADC /* Assets.xcassets */; };
 		13B8BEA425A3D9F700428ADC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B8BEA225A3D9F700428ADC /* LaunchScreen.storyboard */; };
+		13B8BEE025A3EC8100428ADC /* FlagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B8BEDF25A3EC8100428ADC /* FlagButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		13B8BEA025A3D9F700428ADC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13B8BEA325A3D9F700428ADC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13B8BEA525A3D9F700428ADC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13B8BEDF25A3EC8100428ADC /* FlagButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				13B8BE9725A3D9F400428ADC /* AppDelegate.swift */,
 				13B8BE9925A3D9F400428ADC /* SceneDelegate.swift */,
 				13B8BE9B25A3D9F400428ADC /* ViewController.swift */,
+				13B8BEDF25A3EC8100428ADC /* FlagButton.swift */,
 				13B8BEA025A3D9F700428ADC /* Assets.xcassets */,
 				13B8BEA225A3D9F700428ADC /* LaunchScreen.storyboard */,
 				13B8BEA525A3D9F700428ADC /* Info.plist */,
@@ -134,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B8BE9C25A3D9F400428ADC /* ViewController.swift in Sources */,
+				13B8BEE025A3EC8100428ADC /* FlagButton.swift in Sources */,
 				13B8BE9825A3D9F400428ADC /* AppDelegate.swift in Sources */,
 				13B8BE9A25A3D9F400428ADC /* SceneDelegate.swift in Sources */,
 			);
