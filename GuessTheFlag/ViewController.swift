@@ -15,7 +15,9 @@ class ViewController: UIViewController {
     
     var countries = [String]()
     var score = 0
+    var scoreLabel = UILabel()
     var correctAnswer = 0
+    var numberOfQuestionsAsked = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +26,16 @@ class ViewController: UIViewController {
         countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
         
         askQuestion()
+        configureNavBar()
         configureButtons()
     }
     
     func askQuestion(action: UIAlertAction! = nil) {
         countries.shuffle()
-        correctAnswer = Int.random(in: 0...2)
+        numberOfQuestionsAsked += 1
+        if numberOfQuestionsAsked > 10 { finalAlert() }
         
+        correctAnswer = Int.random(in: 0...2)
         title = countries[correctAnswer].uppercased()
         
         button1.setImage(UIImage(named: countries[0]), for: .normal)
@@ -47,19 +52,49 @@ class ViewController: UIViewController {
     
     @objc func buttonTapped(_ sender: UIButton) {
         var title: String
+        var message: String
 
         if sender.tag == correctAnswer {
-            title = "Correct! 😀"
+            title = "Correct"
+            message = "1 point for \(countries[sender.tag].capitalizingFirstLetter())! 🎉"
             score += 1
         } else {
-            title = "Wrong! ☹️"
+            title = "Wrong"
+            message = "That's the flag of \(countries[sender.tag].capitalizingFirstLetter()) 🤭"
             score -= 1
         }
         
-        let ac = UIAlertController(title: title, message: "Your score is \(score)", preferredStyle: .alert)
+        updateScore()
+        
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
         
         present(ac, animated: true)
+    }
+    
+    func configureNavBar() {
+        if let navigationBar = self.navigationController?.navigationBar {
+            let scoreFrame = CGRect(x: -20, y: 0, width: navigationBar.frame.width, height: navigationBar.frame.height)
+            scoreLabel = UILabel(frame: scoreFrame)
+            navigationBar.addSubview(scoreLabel)
+            scoreLabel.textAlignment = .right
+            updateScore()
+        }
+    }
+    
+    func finalAlert() {
+        let ac = UIAlertController(title: "End of Game 🎬", message: "You got \(score) out of 10", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Restart", style: .default, handler: askQuestion))
+        
+        present(ac, animated: true)
+        
+        score = 0
+        updateScore()
+        numberOfQuestionsAsked = 0
+    }
+    
+    func updateScore() {
+        scoreLabel.text = "Score: \(score)"
     }
     
     func configureButtons() {
