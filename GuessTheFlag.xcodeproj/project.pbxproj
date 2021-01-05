@@ -13,6 +13,8 @@
 		13B8BEA125A3D9F700428ADC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B8BEA025A3D9F700428ADC /* Assets.xcassets */; };
 		13B8BEA425A3D9F700428ADC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B8BEA225A3D9F700428ADC /* LaunchScreen.storyboard */; };
 		13B8BEE025A3EC8100428ADC /* FlagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B8BEDF25A3EC8100428ADC /* FlagButton.swift */; };
+		13B8BEE725A409D300428ADC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 13B8BEE625A409D300428ADC /* README.md */; };
+		13B8BEEB25A40B4900428ADC /* AppBanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 13B8BEEA25A40B4900428ADC /* AppBanner.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		13B8BEA325A3D9F700428ADC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13B8BEA525A3D9F700428ADC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13B8BEDF25A3EC8100428ADC /* FlagButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagButton.swift; sourceTree = "<group>"; };
+		13B8BEE625A409D300428ADC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		13B8BEEA25A40B4900428ADC /* AppBanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppBanner.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +44,8 @@
 		13B8BE8B25A3D9F400428ADC = {
 			isa = PBXGroup;
 			children = (
+				13B8BEE925A40AE500428ADC /* Documentation */,
+				13B8BEE625A409D300428ADC /* README.md */,
 				13B8BE9625A3D9F400428ADC /* GuessTheFlag */,
 				13B8BE9525A3D9F400428ADC /* Products */,
 			);
@@ -65,6 +71,14 @@
 				13B8BEA525A3D9F700428ADC /* Info.plist */,
 			);
 			path = GuessTheFlag;
+			sourceTree = "<group>";
+		};
+		13B8BEE925A40AE500428ADC /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				13B8BEEA25A40B4900428ADC /* AppBanner.png */,
+			);
+			path = Documentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,8 +138,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13B8BEE725A409D300428ADC /* README.md in Resources */,
 				13B8BEA425A3D9F700428ADC /* LaunchScreen.storyboard in Resources */,
 				13B8BEA125A3D9F700428ADC /* Assets.xcassets in Resources */,
+				13B8BEEB25A40B4900428ADC /* AppBanner.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
