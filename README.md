@@ -1,7 +1,7 @@
 # GuessTheFlag 🏳
 
 ## The App
-An application that lets users scroll through a list of images, then select one to view.
+A game that shows some random flags to users and asks them to choose which one belongs to a particular country.
 
 ## Screenshots
 ![GuessTheFlag Banner](Documentation/AppBanner.png)
