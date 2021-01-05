@@ -9,14 +9,27 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var button1 = UIButton()
-    var button2 = UIButton()
-    var button3 = UIButton()
+    var button1 = FlagButton()
+    var button2 = FlagButton()
+    var button3 = FlagButton()
+    
+    var countries = [String]()
+    var score = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
+        
+        askQuestion()
         configureButtons()
+    }
+    
+    func askQuestion() {
+        button1.setImage(UIImage(named: countries.randomElement()!), for: .normal)
+        button2.setImage(UIImage(named: countries.randomElement()!), for: .normal)
+        button3.setImage(UIImage(named: countries.randomElement()!), for: .normal)
     }
     
     func configureButtons() {
@@ -24,14 +37,10 @@ class ViewController: UIViewController {
         view.addSubview(button2)
         view.addSubview(button3)
         
-        button1.backgroundColor = .systemPink
-        button2.backgroundColor = .systemPink
-        button3.backgroundColor = .systemPink
-        
-        button1.translatesAutoresizingMaskIntoConstraints = false
-        button2.translatesAutoresizingMaskIntoConstraints = false
-        button3.translatesAutoresizingMaskIntoConstraints = false
-        
+        button1.addShadow(to: button1)
+        button2.addShadow(to: button2)
+        button3.addShadow(to: button3)
+
         NSLayoutConstraint.activate([
             button1.widthAnchor.constraint(equalToConstant: 200),
             button1.heightAnchor.constraint(equalToConstant: 100),
@@ -44,7 +53,7 @@ class ViewController: UIViewController {
             button2.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             button3.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            button1.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            button1.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
             button2.topAnchor.constraint(equalTo: button1.bottomAnchor, constant: 20),
             button3.topAnchor.constraint(equalTo: button2.bottomAnchor, constant: 20)
         ])
