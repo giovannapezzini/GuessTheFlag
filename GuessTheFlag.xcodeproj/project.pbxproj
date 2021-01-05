@@ -14,8 +14,8 @@
 		13B8BEA425A3D9F700428ADC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B8BEA225A3D9F700428ADC /* LaunchScreen.storyboard */; };
 		13B8BEE025A3EC8100428ADC /* FlagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B8BEDF25A3EC8100428ADC /* FlagButton.swift */; };
 		13B8BEE725A409D300428ADC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 13B8BEE625A409D300428ADC /* README.md */; };
-		13B8BEEB25A40B4900428ADC /* AppBanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 13B8BEEA25A40B4900428ADC /* AppBanner.png */; };
 		13B8BEEE25A414CD00428ADC /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B8BEED25A414CD00428ADC /* String+Ext.swift */; };
+		13B8BEF225A4194500428ADC /* AppBanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 13B8BEF125A4194500428ADC /* AppBanner.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +28,8 @@
 		13B8BEA525A3D9F700428ADC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13B8BEDF25A3EC8100428ADC /* FlagButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagButton.swift; sourceTree = "<group>"; };
 		13B8BEE625A409D300428ADC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		13B8BEEA25A40B4900428ADC /* AppBanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppBanner.png; sourceTree = "<group>"; };
 		13B8BEED25A414CD00428ADC /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		13B8BEF125A4194500428ADC /* AppBanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AppBanner.png; path = ../../../../../Desktop/AppBanner.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +79,7 @@
 		13B8BEE925A40AE500428ADC /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
-				13B8BEEA25A40B4900428ADC /* AppBanner.png */,
+				13B8BEF125A4194500428ADC /* AppBanner.png */,
 			);
 			path = Documentation;
 			sourceTree = "<group>";
@@ -142,9 +142,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B8BEE725A409D300428ADC /* README.md in Resources */,
+				13B8BEF225A4194500428ADC /* AppBanner.png in Resources */,
 				13B8BEA425A3D9F700428ADC /* LaunchScreen.storyboard in Resources */,
 				13B8BEA125A3D9F700428ADC /* Assets.xcassets in Resources */,
-				13B8BEEB25A40B4900428ADC /* AppBanner.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
