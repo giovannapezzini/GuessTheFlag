@@ -27,25 +27,45 @@ class ViewController: UIViewController {
         configureButtons()
     }
     
-    func askQuestion() {
+    func askQuestion(action: UIAlertAction! = nil) {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
         
         title = countries[correctAnswer].uppercased()
         
-        button1.setImage(UIImage(named: countries.randomElement()!), for: .normal)
-        button2.setImage(UIImage(named: countries.randomElement()!), for: .normal)
-        button3.setImage(UIImage(named: countries.randomElement()!), for: .normal)
+        button1.setImage(UIImage(named: countries[0]), for: .normal)
+        button2.setImage(UIImage(named: countries[1]), for: .normal)
+        button3.setImage(UIImage(named: countries[2]), for: .normal)
+        
+        button2.tag = 1
+        button3.tag = 2
+        
+        button1.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        button2.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        button3.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+    }
+    
+    @objc func buttonTapped(_ sender: UIButton) {
+        var title: String
+
+        if sender.tag == correctAnswer {
+            title = "Correct! 😀"
+            score += 1
+        } else {
+            title = "Wrong! ☹️"
+            score -= 1
+        }
+        
+        let ac = UIAlertController(title: title, message: "Your score is \(score)", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
+        
+        present(ac, animated: true)
     }
     
     func configureButtons() {
         view.addSubview(button1)
         view.addSubview(button2)
         view.addSubview(button3)
-        
-        button1.addShadow(to: button1)
-        button2.addShadow(to: button2)
-        button3.addShadow(to: button3)
 
         NSLayoutConstraint.activate([
             button1.widthAnchor.constraint(equalToConstant: 200),
@@ -59,7 +79,7 @@ class ViewController: UIViewController {
             button2.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             button3.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            button1.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
+            button1.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             button2.topAnchor.constraint(equalTo: button1.bottomAnchor, constant: 20),
             button3.topAnchor.constraint(equalTo: button2.bottomAnchor, constant: 20)
         ])
