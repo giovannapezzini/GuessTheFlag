@@ -14,10 +14,15 @@ class ViewController: UIViewController {
     var button3 = FlagButton()
     
     var countries = [String]()
-    var score = 0
     var scoreLabel = UILabel()
     var correctAnswer = 0
     var numberOfQuestionsAsked = 0
+    
+    var score: Int = 0 {
+        didSet {
+            navigationItem.rightBarButtonItem?.title = "Score: \(score)"
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,9 +68,7 @@ class ViewController: UIViewController {
             message = "That's the flag of \(countries[sender.tag].capitalizingFirstLetter()) 🤭"
             score -= 1
         }
-        
-        updateScore()
-        
+                
         let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
         
@@ -73,13 +76,11 @@ class ViewController: UIViewController {
     }
     
     func configureNavBar() {
-        if let navigationBar = self.navigationController?.navigationBar {
-            let scoreFrame = CGRect(x: -20, y: 0, width: navigationBar.frame.width, height: navigationBar.frame.height)
-            scoreLabel = UILabel(frame: scoreFrame)
-            navigationBar.addSubview(scoreLabel)
-            scoreLabel.textAlignment = .right
-            updateScore()
-        }
+        navigationController?.navigationBar.isUserInteractionEnabled = false
+
+        let scoreItem = UIBarButtonItem(title: "Score: \(score)", style: .plain, target: self, action: nil)
+        scoreItem.tintColor = .secondaryLabel
+        navigationItem.rightBarButtonItem = scoreItem
     }
     
     func finalAlert() {
@@ -89,12 +90,7 @@ class ViewController: UIViewController {
         present(ac, animated: true)
         
         score = 0
-        updateScore()
         numberOfQuestionsAsked = 0
-    }
-    
-    func updateScore() {
-        scoreLabel.text = "Score: \(score)"
     }
     
     func configureButtons() {
@@ -103,20 +99,23 @@ class ViewController: UIViewController {
         view.addSubview(button3)
 
         NSLayoutConstraint.activate([
-            button1.widthAnchor.constraint(equalToConstant: 200),
-            button1.heightAnchor.constraint(equalToConstant: 100),
-            button2.widthAnchor.constraint(equalToConstant: 200),
-            button2.heightAnchor.constraint(equalToConstant: 100),
-            button3.widthAnchor.constraint(equalToConstant: 200),
-            button3.heightAnchor.constraint(equalToConstant: 100),
+            button1.heightAnchor.constraint(equalTo: button1.widthAnchor, multiplier: 1.0/2.0),
+            button2.heightAnchor.constraint(equalTo: button2.widthAnchor, multiplier: 1.0/2.0),
+            button3.heightAnchor.constraint(equalTo: button3.widthAnchor, multiplier: 1.0/2.0),
             
             button1.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             button2.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             button3.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             button1.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            
             button2.topAnchor.constraint(equalTo: button1.bottomAnchor, constant: 20),
-            button3.topAnchor.constraint(equalTo: button2.bottomAnchor, constant: 20)
+            button2.heightAnchor.constraint(equalTo: button1.heightAnchor),
+            
+            button3.topAnchor.constraint(equalTo: button2.bottomAnchor, constant: 20),
+            button3.heightAnchor.constraint(equalTo: button1.heightAnchor),
+            button3.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+            
         ])
     }
 }
